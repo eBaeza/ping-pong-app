@@ -1,5 +1,5 @@
 import * as types from './types/match'
-import API from '../api'
+import { MatchService } from '../api/MatchService'
 
 /**
  * Actions Creators
@@ -52,15 +52,13 @@ function saveMatchFailure (error) {
 
 export function fetchMatches () {
   return async (dispatch) => {
-    dispatch(() => {
-      return {
-        type: types.FETCH_MATCHES_INIT
-      }
-    })
+    dispatch(() => ({
+      type: types.FETCH_MATCHES_INIT
+    }))
 
     try {
-      const data = await API.matches.getAll()
-      dispatch(fetchMatchesSuccess(data.matches))
+      const { data } = await MatchService.index()
+      dispatch(fetchMatchesSuccess(data))
     } catch (error) {
       dispatch(fetchMatchesFailure(error))
     }
@@ -69,15 +67,13 @@ export function fetchMatches () {
 
 export function fetchMatch (matchId) {
   return async (dispatch) => {
-    dispatch(() => {
-      return {
-        type: types.FETCH_MATCH_INIT
-      }
-    })
+    dispatch(() => ({
+      type: types.FETCH_MATCH_INIT
+    }))
 
     try {
-      const data = await API.matches.getSingle(matchId)
-      return dispatch(fetchMatchSuccess(data.match))
+      const { data } = await MatchService.show(matchId)
+      return dispatch(fetchMatchSuccess(data))
     } catch (error) {
       return dispatch(fetchMatchFailure(error))
     }
@@ -93,7 +89,7 @@ export function saveMatch (match) {
     })
 
     try {
-      await API.matches.save(match)
+      await MatchService.store(match)
       return dispatch(saveMatchSuccess())
     } catch (error) {
       return dispatch(saveMatchFailure(error))

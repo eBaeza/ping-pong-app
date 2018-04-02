@@ -1,5 +1,5 @@
 import { URL_BASE } from '../config/api'
-import { BaseService } from "./BaseService"
+import { BaseService } from './BaseService'
 
 export class UserService extends BaseService {
   static async index() {

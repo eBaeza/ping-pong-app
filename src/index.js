@@ -12,6 +12,7 @@ import createStore, { history } from './store'
 import initialState from './reducers/initialState'
 import App from './App'
 import UserListContainer from './components/UserListContainer'
+import MatchListContainer from './components/MatchListContainer'
 
 const store = createStore(initialState)
 
@@ -26,7 +27,9 @@ ReactDOM.render(
         <Route exact path='/' render={route => (
           <App component={UserListContainer}/>
         )} />
-        <Route path='/matches' component={UserListContainer} />
+        <Route exact path='/matches' render={route => (
+          <App component={MatchListContainer}/>
+        )} />
       </div>
     </ConnectedRouter>
   </Provider>,

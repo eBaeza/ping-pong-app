@@ -11,7 +11,7 @@ const Header = () => {
         <NavbarItem>
           <span className="icon is-medium">
             <Icon icon="table-tennis" size="lg" />
-          </span> Tennis matches
+          </span> PING PONG
         </NavbarItem>
         <NavbarItem
           isHidden='desktop'

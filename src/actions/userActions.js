@@ -1,5 +1,5 @@
 import * as types from './types/user'
-import { UserService } from "../api/userService"
+import { UserService } from '../api/UserService'
 
 /**
  * Actions Creators

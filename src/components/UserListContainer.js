@@ -16,8 +16,8 @@ class UserListContainer extends Component {
         <Columns>
           <Column>
             <Content>
-              <h2><Link to='matches'>Matches</Link></h2>
-              <p>Top 20 ping pong players</p>
+              <h2>Ping pong players</h2>
+              <Link to='matches'>View matches</Link>
             </Content>
           </Column>
           <Column className='has-text-right'>
@@ -44,7 +44,7 @@ UserListContainer.defaultProps = {
 }
 
 UserListContainer.propTypes = {
-  users: PropTypes.arrayOf(PropTypes.object),
+  users: PropTypes.arrayOf(PropTypes.object).isRequired,
   loading: PropTypes.bool.isRequired,
   userActions: PropTypes.objectOf(PropTypes.func).isRequired,
 }
