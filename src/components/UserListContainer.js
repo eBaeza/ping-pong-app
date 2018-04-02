@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import * as userActions from '../actions/userActions'
 
 import { Columns, Column, Content, Button } from 'bloomer'
@@ -15,14 +16,14 @@ class UserListContainer extends Component {
         <Columns>
           <Column>
             <Content>
-              <h2><a>Matches</a></h2>
+              <h2><Link to='matches'>Matches</Link></h2>
               <p>Top 20 ping pong players</p>
             </Content>
           </Column>
           <Column className='has-text-right'>
             <Button isColor='primary'>
               <span>NEW MATCH</span>
-              <span class="icon is-small">
+              <span className="icon is-small">
                 <Icon icon='plus'></Icon>
               </span>
             </Button>
