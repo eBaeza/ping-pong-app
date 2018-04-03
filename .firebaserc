@@ -1,1 +1,5 @@
-{}
+{
+  "projects": {
+    "default": "ping-pong-app-f28e6"
+  }
+}
