@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { Route } from 'react-router'
+import { Route, Switch } from 'react-router'
 import { ConnectedRouter } from 'react-router-redux'
 import 'bulma/css/bulma.css'
 import fontawesome from '@fortawesome/fontawesome'
@@ -13,6 +13,7 @@ import initialState from './reducers/initialState'
 import App from './App'
 import UserListContainer from './components/UserListContainer'
 import MatchListContainer from './components/MatchListContainer'
+import AddNewMatchContainer from './components/AddNewMatchContainer'
 
 const store = createStore(initialState)
 
@@ -23,14 +24,19 @@ localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEs
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <div>
-        <Route exact path='/' render={route => (
-          <App component={UserListContainer}/>
+      <Switch>
+        <Route exact path='/' render={(props) => (
+          <App {...props} component={UserListContainer}/>
         )} />
-        <Route exact path='/matches' render={route => (
-          <App component={MatchListContainer}/>
+
+        <Route exact path='/matches' render={(props) => (
+          <App {...props} component={MatchListContainer}/>
         )} />
-      </div>
+
+        <Route exact path='/matches/new' render={(props) => (
+          <App {...props} component={AddNewMatchContainer}/>
+        )} />
+      </Switch>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root')

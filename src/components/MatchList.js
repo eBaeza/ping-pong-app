@@ -49,7 +49,7 @@ const MatchList = ({ matches, loading }) => {
 }
 
 MatchList.propTypes = {
-  macthes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  matches: PropTypes.arrayOf(PropTypes.object).isRequired,
   loading: PropTypes.bool.isRequired
 }
 

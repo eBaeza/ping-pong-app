@@ -39,7 +39,7 @@ MatchItem.propTypes = {
   result: PropTypes.string.isRequired,
   player: playerType,
   opponent: playerType,
-  created_at: PropTypes.instanceOf(Date),
+  created_at: PropTypes.string.isRequired,
 }
 
 export default MatchItem

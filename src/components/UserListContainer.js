@@ -21,7 +21,7 @@ class UserListContainer extends Component {
             </Content>
           </Column>
           <Column className='has-text-right'>
-            <Button isColor='primary'>
+            <Button isColor='primary' href='/matches/new'>
               <span>NEW MATCH</span>
               <span className="icon is-small">
                 <Icon icon='plus'></Icon>
